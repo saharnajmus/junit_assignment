@@ -10,7 +10,7 @@ import java.util.List;
 
 public class ReadFile {
     public static void main(String[] args) {
-        SearchValidWords flc = new SearchValidWords();
+        SearchValidWords words = new SearchValidWords();
         List<String> list = new ArrayList<>();
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader("C:/Users/uzair/Documents/junit_assignment/assignmentText.txt"))) {
             String line = null;
@@ -18,7 +18,7 @@ public class ReadFile {
                 list.add(line.trim());
 
             }
-            List<String> validWordsList = flc.findAllCombination(list);
+            List<String> validWordsList = words.findAllCombinations(list);
             validWordsList.forEach(System.out::println);
         } catch (IOException e) {
             e.getMessage();

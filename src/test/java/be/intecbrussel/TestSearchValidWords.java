@@ -6,6 +6,7 @@ import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import java.util.Collections;
 import java.util.List;
 
 public class TestSearchValidWords {
@@ -23,15 +24,25 @@ public class TestSearchValidWords {
     }
 
     @Test
-    void helloIsValid() {
-        List<String> output = searchValidWords.findAllCombination(List.of("hello", "he", "hel", "lo"));
+    void isHelloValid() {
+        List<String> output = searchValidWords.findAllCombinations(List.of("hello", "he", "hel", "lo"));
         Assertions.assertLinesMatch(List.of("hello"), output);
     }
 
     @Test
-    void WorldIsValid() {
-        List<String> output = searchValidWords.findAllCombination(List.of("world", "wor", "ld", "ldd"));
+    void isWorldValid() {
+        List<String> output = searchValidWords.findAllCombinations(List.of("world", "wor", "ld", "ldd"));
         Assertions.assertLinesMatch(List.of("world"), output);
     }
 
+    @Test
+    void testEmptyList(){
+        List<String> output = searchValidWords.findAllCombinations(Collections.emptyList());
+        Assertions.assertTrue(output.isEmpty());
+    }
+    @Test
+    void testNullList(){
+        List<String> output = searchValidWords.findAllCombinations(null);
+        Assertions.assertNull(output);
+    }
 }

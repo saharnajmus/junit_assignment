@@ -1,11 +1,15 @@
 package be.intecbrussel.service;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class SearchValidWords {
 
-    public List<String> findAllCombination(List<String> list) {
+    public List<String> findAllCombinations(List<String> list) {
+        if(list==null){
+            return null;
+        }
         List<String> validWords = new ArrayList();
         String word = "";
         String combination = "";
@@ -20,10 +24,7 @@ public class SearchValidWords {
                     System.out.println(combination + " is not a valid word ");
                 }*/
             }
-
         }
         return validWords;
-
-
     }
 }
